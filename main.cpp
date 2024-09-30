@@ -3,9 +3,9 @@
 int main() {
     
     // ポケモンの名前を設定
-    char pokemon1[] = "ピカチュウ";
-    char pokemon2[] = "イーブイ";
-    char pokemon3[] = "ミュウツー";
+    char pokemon1[] = "ジャローダ";
+    char pokemon2[] = "ドオー";
+    char pokemon3[] = "ゼクロム";
    
     // ポケモンの名前を出力
     printf("%s\n", pokemon1);
