@@ -1,16 +1,29 @@
 #include <stdio.h>
 
+// 関数テンプレート
+template<typename T>
+T min(T a, T b) {
+   if (a < b) {
+       return a;
+   }
+   else {
+       return b;
+   }
+}
+// テンプレートの特殊化（オーバーライド）
+template <>
+char min<char>(char a, char b) {
+
+   printf("数字以外は入力できません");
+   return '\0';
+}
+
 int main() {
-    
-    // ポケモンの名前を設定
-    char pokemon1[] = "ジャローダ";
-    char pokemon2[] = "ドオー";
-    char pokemon3[] = "ゼクロム";
-   
-    // ポケモンの名前を出力
-    printf("%s\n", pokemon1);
-    printf("%s\n", pokemon2);
-    printf("%s\n", pokemon3);
+
+    printf("%d\n", min<int>(115, 112));              // int
+    printf("%f\n", min<float>(1.2f, 1.19f));         // float
+    printf("%lf\n", min<double>(5.2f, 5.1999f));     // double
+    printf("%c\n", min<char>('a','あ'));             // char
 
     return 0;
 }
