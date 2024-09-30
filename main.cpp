@@ -45,8 +45,8 @@ int main() {
     int dice = rollDice(); 
     printf("サイコロを振りました。奇数か偶数かを予想してください!!!!（奇数なら1、偶数なら0を入力）：");
 
-    int guess;
     // 入力を取得（奇数なら1、偶数なら0）
+    int guess;
     scanf_s("%d", &guess); 
 
     // サイコロの目が奇数かどうかを判定
