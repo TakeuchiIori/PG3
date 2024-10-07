@@ -32,7 +32,7 @@ void displayResult(bool correct, void (*callback)()) {
 /// <summary>
 /// 3秒待機する関数
 /// </summary>
-void Wait() {
+void SetTimeout() {
     //　指定した時間だけ停止することができる関数　#include <thread> 必要
     std::this_thread::sleep_for(std::chrono::seconds(3)); // 3秒待機
 }
@@ -56,7 +56,7 @@ int main() {
     bool correct = (guess == diceOdd);
 
     // 結果を表示する前に3秒待機
-    displayResult(correct, Wait); 
+    displayResult(correct, SetTimeout);
 
     // サイコロの結果を表示
     printf("サイコロの目は %d でした。\n", dice); 
