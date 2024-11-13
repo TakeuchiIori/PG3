@@ -29,7 +29,7 @@ public:
     // 円の面積を表示
     void Draw() override {
         std::cout << std::fixed << std::setprecision(2); // 小数点第2位まで
-        std::cout << "Circle Area : " << size_ << std::endl;
+        std::cout << "円の面積 : " << size_ << std::endl;
     }
     
 private:
@@ -51,7 +51,7 @@ public:
 
     // 矩形の面積を表示
     void Draw() override {
-        std::cout << "Rectangle Area : " << size_ << std::endl;
+        std::cout << "矩形の面積 : " << size_ << std::endl;
     };
 
 private:
