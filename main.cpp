@@ -9,7 +9,7 @@ public:
     virtual ~PaymentMethod() {}
 
     //　純粋仮想関数
-    virtual void pay(int amount) const = 0;
+    virtual void Pay(int amount) const = 0;
 };
 
 //===================== 派生クラス =====================//
@@ -18,7 +18,7 @@ public:
 /// </summary>
 class CreditCard : public PaymentMethod {
 public:
-    void pay(int amount) const override {
+    void Pay(int amount) const override {
         std::cout << "クレジットカードで " << amount << " 円を支払いました。" << std::endl;
     }
 };
@@ -28,7 +28,7 @@ public:
 /// </summary>
 class Cash : public PaymentMethod {
 public:
-    void pay(int amount) const override {
+    void Pay(int amount) const override {
         std::cout << "現金で " << amount << " 円を支払いました。" << std::endl;
     }
 };
@@ -38,7 +38,7 @@ public:
 /// </summary>
 class DigitalWallet : public PaymentMethod {
 public:
-    void pay(int amount) const override {
+    void Pay(int amount) const override {
         std::cout << "電子マネーで " << amount << " 円を支払いました。" << std::endl;
     }
 };
@@ -53,7 +53,7 @@ int main() {
 
     int amount = 5000;  // 支払金額
     for (const auto& payment : payments) {
-        payment->pay(amount);
+        payment->Pay(amount);
     }
 
     // 解放
