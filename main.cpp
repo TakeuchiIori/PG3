@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <iostream>
 using namespace std;
 
 int main() {
@@ -31,7 +33,14 @@ int main() {
 	  "k022g0031@g.neec.ac.jp", "k022g0076@g.neec.ac.jp", "k022g0002@g.neec.ac.jp", "k022g0090@g.neec.ac.jp", "k022g0074@g.neec.ac.jp",
 	  "k022g0012@g.neec.ac.jp", "k022g0001@g.neec.ac.jp" };
 
+	// ソート処理
+	std::sort(emails.begin(), emails.end());
 
+	// ソート後の結果を表示
+	std::cout << "学籍番号順にソートされたメールアドレス:" << std::endl;
+	for (const auto& email : emails) {
+		std::cout << email << std::endl;
+	}
 
 
 
