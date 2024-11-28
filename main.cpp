@@ -21,17 +21,17 @@ int main() {
 	// ファイルを開く
 	std::ifstream file(filename);
 	if (!file.is_open()) {
-		std::cerr << "ファイルを開くことができません: " << filename << std::endl;
+		std::cerr << "ファイルが開けません: " << filename << std::endl;
 		return 1;
 	}
 
 	// メールアドレスを格納するベクター
 	std::vector<std::string> emails;
 
-	// ファイル内容を1行ずつ読み取る（今回は1行にすべて格納されていると仮定）
+	// ファイル内容を1行ずつ読み取る
 	std::string line;
 	while (std::getline(file, line)) {
-		// 配列の角括弧を削除
+		// いらんもん削除
 		line.erase(std::remove(line.begin(), line.end(), '['), line.end());
 		line.erase(std::remove(line.begin(), line.end(), ']'), line.end());
 
@@ -51,8 +51,7 @@ int main() {
 	// ソート処理
 	std::sort(emails.begin(), emails.end());
 
-	// ソート後の結果を表示
-	std::cout << "学籍番号順にソートされたメールアドレス一覧:" << std::endl;
+	std::cout << "メールアドレス一覧:" << std::endl;
 	for (const auto& email : emails) {
 		std::cout << email << std::endl;
 	}
@@ -83,7 +82,7 @@ int main() {
 //std::smatch match;
 //std::vector<std::string> emails;
 
-//// std::sregex_iteratorでマッチングを繰り返す
+//// std::sregex_iteratorで繰り返す
 //auto begin = std::sregex_iterator(fileContent.begin(), fileContent.end(), emailRegex);
 //auto end = std::sregex_iterator();
 
@@ -91,10 +90,8 @@ int main() {
 //	emails.push_back(it->str()); // マッチしたメールアドレスをベクターに追加
 //}
 
-//// ソート処理
 //std::sort(emails.begin(), emails.end());
 
-//// ソート後の結果を表示
 //std::cout << "メールアドレス一覧:" << std::endl;
 //for (const auto& email : emails) {
 //	std::cout << email << std::endl;
