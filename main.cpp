@@ -41,8 +41,11 @@ int main() {
     // 乱数を生成
     srand(time(0));
 
+    int (*abo)();
+
+    
     // サイコロを振って1～6のランダムな数を取得
-    int dice = rollDice(); 
+    abo = rollDice;
     printf("サイコロを振りました。奇数か偶数かを予想してください!!!!（奇数なら1、偶数なら0を入力）：");
 
     // 入力を取得（奇数なら1、偶数なら0）
@@ -50,7 +53,7 @@ int main() {
     scanf_s("%d", &guess); 
 
     // サイコロの目が奇数かどうかを判定
-    int diceOdd = isOdd(dice); 
+    int diceOdd = isOdd(abo()); 
 
     // ユーザーの予想と実際のサイコロの結果を比較
     bool correct = (guess == diceOdd);
@@ -59,7 +62,7 @@ int main() {
     displayResult(correct, SetTimeout);
 
     // サイコロの結果を表示
-    printf("サイコロの目は %d でした。\n", dice); 
+    printf("サイコロの目は %d でした。\n", abo()); 
 
     return 0;
 }
