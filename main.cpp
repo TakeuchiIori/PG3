@@ -21,8 +21,7 @@ int isOdd(int number) {
 void displayResult(bool correct, void (*callback)()) {
     if (correct) {
         printf("正解です！\n"); // 正解の場合
-    }
-    else {
+    } else {
         printf("残念でした不正解でした...\n"); // 不正解の場合
     }
 
