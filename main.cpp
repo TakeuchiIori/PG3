@@ -4,22 +4,18 @@
 #include <iomanip> // std::fixed, std::setprecision
 
 int main() {
-    // 100,000文字の文字列を作成
-    std::string a(100000000, 'a');
-
-    // メッセージ表示
+    std::string a(100000, 'a');
     std::cout << "100,000文字を移動とコピーで比較しました。\n";
 
-    // コピーにかかる時間を計測
     auto start_copy = std::chrono::high_resolution_clock::now();
-    std::string b = a; // コピー
+    std::string b = a;
     auto end_copy = std::chrono::high_resolution_clock::now();
 
     auto copy_duration = std::chrono::duration_cast<std::chrono::microseconds>(end_copy - start_copy).count();
-    std::cout << std::fixed << std::setprecision(0); // 小数点以下2桁を指定
+    std::cout << std::fixed << std::setprecision(0);
     std::cout << "コピー: " << static_cast<double>(copy_duration) << "us\n";
 
-    // ムーブにかかる時間を計測
+  
     auto start_move = std::chrono::high_resolution_clock::now();
     std::string c = std::move(a); // ムーブ
     auto end_move = std::chrono::high_resolution_clock::now();
@@ -27,7 +23,6 @@ int main() {
     auto move_duration = std::chrono::duration_cast<std::chrono::microseconds>(end_move - start_move).count();
     std::cout << "移動: " << static_cast<double>(move_duration) << "us\n";
 
-    // 続行メッセージ
     std::cout << "続行するには何かキーを押してください・・・";
     std::cin.get(); // キー入力を待つ
 
